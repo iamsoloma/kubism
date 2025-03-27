@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: kubism
+spec:
+  selector:
+    matchLabels:
+      app: kubism
+  template:
+    metadata:
+      labels:
+        app: kubism
+    spec:
+      containers:
+      - name: kubism
+        image: iamsoloma/kubism:0.0.8
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+        ports:
+        - containerPort: 1304
